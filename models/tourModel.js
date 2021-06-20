@@ -82,7 +82,7 @@ const tourSchema = new mongoose.Schema(
       type: {
         type: String,
         default: 'Point',
-        enum: ['Point']
+        enum: ['Point'],
       },
       coordinates: [Number],
       address: String,
@@ -90,17 +90,23 @@ const tourSchema = new mongoose.Schema(
     },
     locations: [
       {
-        type: { 
+        type: {
           type: String,
           default: 'Point',
-          enum: ['Point']
+          enum: ['Point'],
         },
         coordinates: [Number],
         address: String,
         description: String,
         day: Number,
-      }
-    ]
+      },
+    ],
+    guides: [
+      {
+        type: mongoose.Schema.ObjectId,
+        ref: 'User',
+      },
+    ],
   },
   {
     toJSON: { virtuals: true },
