@@ -5,7 +5,7 @@ const catchAsync = require('../utils/catchAsync');
 const handlerFactory = require('./handlerFactory');
 
 exports.getAllTours = handlerFactory.getAll(Tour);
-exports.getTour = handlerFactory.getOne(Tour);
+exports.getTour = handlerFactory.getOne(Tour, { path: 'reviews' });
 exports.createTour = handlerFactory.createOne(Tour);
 exports.updateTour = handlerFactory.updateOne(Tour);
 exports.deleteTour = handlerFactory.deleteOne(Tour);
