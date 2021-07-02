@@ -6,6 +6,9 @@ const router = express.Router({ mergeParams: true });
 
 // router.param('id', reviewController.checkID);
 
+//Protext routes after this middleware
+router.use(authController.protect);
+
 router
   .route('/')
   .get(reviewController.getAllReviews)
@@ -15,6 +18,8 @@ router
     reviewController.setTourUserIds,
     reviewController.createReview
   );
+
+router.use(authController.restrictTo('user', 'admin'));
 
 router
   .route('/:id')

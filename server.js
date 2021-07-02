@@ -26,7 +26,7 @@ mongoose
     console.log('DB connection established ');
   });
 const port = process.env.PORT || 3100;
-
+console.log(process.env.NODE_ENV);
 const server = app.listen(port, () => {
   console.log(`App is running at ${port}`);
 });
